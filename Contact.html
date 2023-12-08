@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+</head>
+<body>
+    <style>
+        *{
+            margin: 0;
+            padding:0
+        }
+         body{
+            font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.1),#009688),url('sas.jpg');
+        }
+
+        a{
+            text-decoration: none;
+            padding: 10px;
+            font-size: 20px;
+            text-transform: capitalize;
+            color:#f0f8ff;
+        }
+
+         header{
+            background-color: #000000;
+            padding: 10px;
+         }      
+    
+        .header1{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px;
+            width: 80%;
+            margin: 0 auto;
+        }
+    
+        h1{
+            text-transform: capitalize;
+            color:#f0f8ff;
+        }
+    
+        #close,#open{
+            display: none;
+            text-transform: uppercase
+        }
+
+        main{
+            display: flex;
+	        justify-content: center;
+	        align-items: center;
+	        width: 100%;
+	        height: 100vh;
+	        background-position: center;
+	        background-size: cover;
+            font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif ;
+        }
+
+section{
+	width: 60%;
+    max-width: 400px;
+   padding: 50px 30px 20px;
+   background-color: #f0f8ff;
+   box-sizing: 0 4px 30px rgba(0,0,0,0.5);
+   position: relative;
+   margin-top: 0px;
+   margin-bottom: 0px;
+ }
+
+ .input-section{
+   width: 100%;
+   display: flex;
+   align-items: center;
+   margin: 10px 0;
+   position: relative;
+ }
+
+ input,textarea{
+   outline: none;
+   flex-basis: 60%;
+   background: transparent;
+   border: 0;
+   padding: 10px 0;
+   border-bottom: 1px solid #999;
+   color: #333;
+   font-size: 16px;
+ }
+
+ label{
+   flex-basis:28%;
+   font-size: 17px;
+ }
+
+ ::placeholder{
+   font-size: 14px;
+   font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif ;
+   
+ }
+
+ button{
+   border: none;
+   background-color: black;
+   color: lemonchiffon;
+   padding: 10px;
+   width: 120px;
+   font-size: 18px;
+   position: relative;
+   
+ }
+
+    
+ footer{
+    background-color: #000000;
+    margin-top: 5rem;
+}
+
+.container{
+    
+    color: #f0f8ff;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 20px;
+    padding: 30px;
+}
+
+ul li{
+    list-style-type: none;
+}
+
+.container1{
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.contact{
+    padding: 20px;
+}
+
+hr{
+    width: 70%;
+}
+
+.contact{
+    padding: 10px;
+}
+    
+        @media(max-width:700px){
+            nav{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                position: fixed;
+                transition: left 2s;
+                right: 1px;
+                top: -2px;
+                left: -2500px;
+                background-color:#444;
+                width: 100%;
+                height: 100vh;
+                line-height: 50px;
+                padding-top: 100px;
+                z-index: 1;
+            }
+
+            a{
+                color: #f0f8ff;
+            }
+    
+            #open{
+            display: block;
+            cursor: pointer;
+            color:#f0f8ff;
+            }
+            #close{
+                color: aliceblue;
+                display: block;
+                cursor: pointer;
+            }
+
+            label{
+            font-size: 14px;
+         }
+         ::placeholder{
+            font-size: 11px;
+         }
+
+         .contact{
+            font-size: 20px;
+        }
+
+         .container{
+        display: grid;
+        grid-template-columns: 1fr;
+        gap:10px
+    }
+        }
+    </style>
+    <body>
+        <header>
+            <div class="header1">
+                <h1>Learning</h1>
+                
+                <nav>
+                    <a href="#" id="close">X</a>
+                    <a href="#">Contact</a>
+                    <a href="Home.html">home</a>
+                    <a href="About.html">about</a>
+                </nav>
+                <h3 id="open">Menu</h3>
+            </div>
+            <div class="header2"></div>
+        </header>
+        <main>
+
+        <section>
+               <!--inputs-->
+        <div class="input-section">
+            <label>Full Name</label>
+            <input type="text" placeholder="Enter Your name" id="contact-name" onkeyup="validteName()">
+            <span id="name-error"></span>
+           </div>
+   
+           <div class="input-section">
+               <label>Phone No.</label>
+               <input type="text" placeholder="675 75 81 01" id="contact-phone" onkeyup="validtePhone()">
+               <span id="phone-error"></span>
+            </div>
+   
+           <div class="input-section">
+               <label>Email id</label>
+               <input type="text" placeholder="Enter your email" id="contact-email" onkeyup="validteEmail()">
+               <span id="email-error"></span>
+           </div>
+            <div class="input-section">
+               <label id="Massage">Your Massage</label>
+               <textarea  rows="5" placeholder="Enter your Massage" id="message"></textarea>
+               <span id="message-error"></span>
+           </div>
+   
+           <button onclick="getValues()">Submit</button><br><br>
+           <span id="submit-error"></span>
+   
+         </div>
+        </section>
+        </main>
+
+        <footer>
+            <h1 class="contact">Contact us: (+237)673 91 67 78</h1>
+            <br>
+            <hr>
+            <div class="container">
+    
+            <div class="container1">
+                <h4>New Courses</h4><br>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eligendi commodi fugit expedita rem earum esse.</p>
+            </div>
+            <div class="container1">
+                <h4>Formation</h4><br>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Velit voluptates perferendis, porro quam consectetur cum.</p>
+            </div>
+            <div class="container1">
+                <h4>Common courses</h4><br>
+                <ul>
+                    <li>Pithon</li>
+                    <li>React</li>
+                    <li>Php</li>
+                    <li>Java Script</li>
+                </ul>
+            </div>
+            <div class="container1">
+                <h4>E learning</h4><br>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem, reiciendis architecto ab molestiae ipsum voluptatum.</p>
+            </div>
+    
+            </div>
+        </footer>
+        <!--java-script-->
+        <script>
+           let nav = document.querySelector('nav');
+           let open = document.querySelector('#open');
+           let close = document.querySelector('#close')
+    
+           open.addEventListener('click',function(){
+            nav.style.left='1px';
+           })
+    
+           close.addEventListener('click',function(){
+            nav.style.left='-720px';
+           })
+
+         /*get value*/
+           function getValues() {
+              let fullName = document.getElementById('contact-name')[0].value;
+              let contact = document.getElementsByName("contact-phone")[0].value;
+              let email = document.getElementsByName("contact-email")[0].value;
+              let message = document.getElementById('message')
+              let info = fullName + ""+ surname +""+ contact +""+ email;
+
+              alert(info);
+           }
+        </script>
+</body>
+</html>
